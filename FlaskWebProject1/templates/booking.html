@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+
+<form action="http://localhost:5555/submit" method="POST">
+    <label for="BookerName">Name of person booking tickets:</label>
+    <input type="text" id="BookerName" name="BookerName" />
+    <br />
+    <label for="ContactNo">Enter Phone Number:</label>
+    <input type="text" id="ContactNo" name="ContactNo" />
+    <br />
+    <h3>Seats available for today</h3>
+    {% for i,x in v1 %}
+        {% if i %}
+    <label for="v1">Seat {{ x }}</label>
+    <input type="checkbox" id="v1" name="v1{{ x }}">
+        {% endif %}
+    {% endfor %}
+    <h3>Seats available for tomorrow</h3>
+    {% for i,x in v2 %}
+        {% if i %}
+    <label for="v2">Seat {{ x }}</label>
+    <input type="checkbox" id="v2" name="v2{{ x }}">
+        {% endif %}
+    {% endfor %}
+
+    <br />
+    <input type="reset" value="Reset" />
+    <input type="submit" value="Submit" />
+</form>
+      {% endblock %}

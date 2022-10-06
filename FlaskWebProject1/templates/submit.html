@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<h1>SUCCESS, TICKETS RESERVED</h1>
+<h3>Data received-</h3>
+{% for k in data.items() %}
+    <p>{{ k }}</p>
+{% endfor %}
+
+{% endblock %}
